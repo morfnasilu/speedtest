@@ -6,13 +6,15 @@ target 'SpeedTest' do
   # use_frameworks!
 
   # Pods for SpeedTest
-	pod 'ReactiveCocoa', '2.4.7'	
+	pod 'ReactiveCocoa', '2.4.7'
   target 'SpeedTestTests' do
+
     inherit! :search_paths
     # Pods for testing
   end
 
   target 'SpeedTestUITests' do
+
     inherit! :search_paths
     # Pods for testing
   end

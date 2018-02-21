@@ -10,7 +10,8 @@
 #import "SPSpeedTestManagerDelegate.h"
 #import "SPSpeedTestProtocol.h"
 
-static const NSTimeInterval SPSpeedTestManagerTimeInterval = 0.3;
+static const NSTimeInterval SPSpeedTestManagerTimeInterval = 1.0;
+static const NSTimeInterval SPSpeedTestManagerBitsInByte = 8;
 
 @interface SPSpeedTestManager() {
     
@@ -67,7 +68,12 @@ static const NSTimeInterval SPSpeedTestManagerTimeInterval = 0.3;
 
 -(void)calculateProgressForTest:(id<SPSpeedTestProtocol>)test {
     NSTimeInterval timeFrame = [NSDate date].timeIntervalSince1970 - self.startTestDateInterval;
-    test.speed = test.doneSize / timeFrame;
+    test.avarageSpeed = test.doneSize / timeFrame * SPSpeedTestManagerBitsInByte;
+    test.speed = test.chunkSize / SPSpeedTestManagerTimeInterval * SPSpeedTestManagerBitsInByte;
+    test.pickSpeed = MAX(test.pickSpeed, test.speed);
+    
+    test.chunkSize = 0;
+    
     if (_delegate) {
         [_delegate testStateChanged:test state:test.testState];
     }

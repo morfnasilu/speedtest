@@ -4,10 +4,28 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SpeedTest.xcscheme</key>
+		<key>SpeedTest.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>E2D5A495203AAB7300F75B02</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E2D5A4AD203AAB7400F75B02</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E2D5A4B8203AAB7400F75B02</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

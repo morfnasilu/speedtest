@@ -36,7 +36,9 @@
 
 -(void)setupSession {
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration  defaultSessionConfiguration];
+    config.HTTPMaximumConnectionsPerHost = 40;
     _session = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    
 }
 
 
@@ -88,6 +90,7 @@ didCompleteWithError:(NSError *)error {
       didWriteData:(int64_t)bytesWritten
  totalBytesWritten:(int64_t)totalBytesWritten
 totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
+    NSLog(@"");
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"taskIdentifier == %d", downloadTask.taskIdentifier];
     NSArray<NSURLSessionTask *> *filteredArray = [[NSArray arrayWithArray:_activeTasks] filteredArrayUsingPredicate:predicate];
     if (filteredArray.count) {

@@ -9,7 +9,12 @@
 #import "AppDelegate.h"
 #import "SPInjectorContainer.h"
 
-@interface AppDelegate ()
+static const CGFloat timerDuration = 10.0f;
+
+@interface AppDelegate () {
+    NSTimer *_timer;
+    NSTimer *_silenceTimer;
+}
 
 @end
 
@@ -18,7 +23,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [injectorContainer().uiManager commonInit];
+    
+    UIBackgroundTaskIdentifier bgTask;
+    UIApplication  *app = [UIApplication sharedApplication];
+    bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+        [app endBackgroundTask:bgTask];
+    }];
+    _silenceTimer = [NSTimer scheduledTimerWithTimeInterval:timerDuration target:self
+                                                       selector:@selector(startLocationServices) userInfo:nil repeats:YES];
+    
+    
     return YES;
+}
+
+
+-(void)startLocationServices {
+    NSLog(@"_silenceTimer fired");
+}
+
+
+-(void)fire {
+    NSLog(@"selector fired");
 }
 
 

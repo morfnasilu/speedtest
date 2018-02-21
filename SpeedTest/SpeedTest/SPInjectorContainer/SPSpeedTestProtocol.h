@@ -17,7 +17,10 @@ typedef NS_ENUM(NSUInteger, SPSpeedTestState) {
 @protocol SPSpeedTestProtocol<NSObject>
 
 @property (nonatomic, assign) long doneSize;//uploaded, downloaded etc bytes
+@property (nonatomic, assign) long chunkSize;//uploaded, downloaded etc bytes
 @property (nonatomic, assign) long speed;// bytes/second
+@property (nonatomic, assign) long avarageSpeed;// bytes/second
+@property (nonatomic, assign) long pickSpeed;// bytes/second
 @property (nonatomic, assign) SPSpeedTestState testState;
 
 -(void)runTest;

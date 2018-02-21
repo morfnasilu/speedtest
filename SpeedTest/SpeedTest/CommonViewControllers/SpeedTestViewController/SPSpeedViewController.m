@@ -13,7 +13,9 @@
 #import "SPSpeedTestManagerDelegate.h"
 
 @interface SPSpeedViewController ()<SPSpeedTestManagerDelegate> {
-    UILabel *_label;
+    UILabel *_currentsSpeedLabel;
+    UILabel *_pickSpeedLabel;
+    UILabel *_averageSpeedLabel;
     UILabel *_stateLabel;
 }
 @end
@@ -39,14 +41,34 @@
     [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0].active = YES;
     [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0].active = YES;
     
-    _label = [UILabel new];
-    _label.translatesAutoresizingMaskIntoConstraints = NO;
-    _label.textColor = [UIColor blueColor];
-    _label.font = [UIFont systemFontOfSize:17];
-    [self.view addSubview:_label];
+    _currentsSpeedLabel = [UILabel new];
+    _currentsSpeedLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    _currentsSpeedLabel.textColor = [UIColor blueColor];
+    _currentsSpeedLabel.font = [UIFont systemFontOfSize:17];
+    [self.view addSubview:_currentsSpeedLabel];
     
-    [NSLayoutConstraint constraintWithItem:_label attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0].active = YES;
-    [NSLayoutConstraint constraintWithItem:_label attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:button attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10].active = YES;
+    [NSLayoutConstraint constraintWithItem:_currentsSpeedLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0].active = YES;
+    [NSLayoutConstraint constraintWithItem:_currentsSpeedLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:button attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10].active = YES;
+    
+    _pickSpeedLabel = [UILabel new];
+    _pickSpeedLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    _pickSpeedLabel.textColor = [UIColor blueColor];
+    _pickSpeedLabel.font = [UIFont systemFontOfSize:17];
+    [self.view addSubview:_pickSpeedLabel];
+    
+    [NSLayoutConstraint constraintWithItem:_pickSpeedLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_currentsSpeedLabel attribute:NSLayoutAttributeRight multiplier:1.0 constant:10].active = YES;
+    [NSLayoutConstraint constraintWithItem:_pickSpeedLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_currentsSpeedLabel attribute:NSLayoutAttributeTop multiplier:1.0 constant:0].active = YES;
+    
+    
+    _averageSpeedLabel = [UILabel new];
+    _averageSpeedLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    _averageSpeedLabel.textColor = [UIColor blueColor];
+    _averageSpeedLabel.font = [UIFont systemFontOfSize:17];
+    [self.view addSubview:_averageSpeedLabel];
+    
+    [NSLayoutConstraint constraintWithItem:_averageSpeedLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_currentsSpeedLabel attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-10].active = YES;
+    [NSLayoutConstraint constraintWithItem:_averageSpeedLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_currentsSpeedLabel attribute:NSLayoutAttributeTop multiplier:1.0 constant:0].active = YES;
+    
     
     _stateLabel = [UILabel new];
     _stateLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -55,7 +77,7 @@
     [self.view addSubview:_stateLabel];
     
     [NSLayoutConstraint constraintWithItem:_stateLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0].active = YES;
-    [NSLayoutConstraint constraintWithItem:_stateLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_label attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10].active = YES;
+    [NSLayoutConstraint constraintWithItem:_stateLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_currentsSpeedLabel attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10].active = YES;
 }
 
 
@@ -70,13 +92,15 @@
         i++;
     }
     if (testState == SPSpeedTestRunning) {
-        _label.text = @"Running";
+        _stateLabel.text = @"Running";
     }
     if (testState == SPSpeedTestComplete) {
-        _label.text = @"Test completed";
+        _stateLabel.text = @"Test completed";
         return;
     }
-    _label.text = [NSByteCountFormatter stringFromByteCount:test.speed countStyle:NSByteCountFormatterCountStyleDecimal];
+    _currentsSpeedLabel.text = [NSByteCountFormatter stringFromByteCount:test.speed countStyle:NSByteCountFormatterCountStyleDecimal];
+    _averageSpeedLabel.text = [NSByteCountFormatter stringFromByteCount:test.avarageSpeed countStyle:NSByteCountFormatterCountStyleDecimal];
+    _pickSpeedLabel.text = [NSByteCountFormatter stringFromByteCount:test.pickSpeed countStyle:NSByteCountFormatterCountStyleDecimal];
 }
 
 - (void)didReceiveMemoryWarning {

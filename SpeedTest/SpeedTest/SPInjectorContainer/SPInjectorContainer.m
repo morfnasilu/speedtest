@@ -50,6 +50,14 @@
     return speedTestManager;
 }
 
+- (id<SPDataGeneratorProtocol>)dataGenerator {
+    static id<SPDataGeneratorProtocol> dataGenerator = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dataGenerator = [[SPDataGenerator alloc] init];
+    });
+    return dataGenerator;
+}
 
 @end
 

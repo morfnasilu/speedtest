@@ -23,7 +23,8 @@ typedef NS_ENUM(NSUInteger, SPSpeedTestState) {
 @property (nonatomic, assign) long pickSpeed;// bytes/second
 @property (nonatomic, assign) SPSpeedTestState testState;
 
--(void)runTest;
+-(void)runDownloadTest;
+-(void)runUploadTest;
 -(void)cancelTest;
 
 @end

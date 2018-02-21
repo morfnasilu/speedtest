@@ -33,15 +33,12 @@
     return self;
 }
 
--(void)runTest {
-//    NSArray<NSString *> *filesLink = @[@"http://speedtest-brest.tech.mts.by:8080/download?nocache=1558360a-3e11-437d-9329-68c45c61ba48&size=25000000",
-//                                       @"http://speedtest-brest.tech.mts.by:8080/download?nocache=1806d867-3bc8-4443-84b4-71821b003f8d&size=25000000",
-//                                       @"http://speedtest-brest.tech.mts.by:8080/download?nocache=0f1b6b24-fc54-47e8-b6f7-a1ffc706dd68&size=25000000",
-//                                       @"http://speedtest-brest.tech.mts.by:8080/download?nocache=d35c5824-4a24-4614-8e91-2737fe0159d6&size=25000000"];
+-(void)runDownloadTest {
     NSArray<NSString *> *filesLink = @[@"http://speedtest-brest.tech.mts.by:8080/download?nocache=1558360a-3e11-437d-9329-68c45c61ba48&size=25000000",
                                        @"http://speedtest-brest.tech.mts.by:8080/download?nocache=1806d867-3bc8-4443-84b4-71821b003f8d&size=25000000",
                                        @"http://speedtest-brest.tech.mts.by:8080/download?nocache=0f1b6b24-fc54-47e8-b6f7-a1ffc706dd68&size=25000000",
                                        @"http://speedtest-brest.tech.mts.by:8080/download?nocache=d35c5824-4a24-4614-8e91-2737fe0159d6&size=25000000"];
+//    NSArray<NSString *> *filesLink = @[@"ftp://speedtest.tele2.net/10MB.zip"];
     [self addDownloadTasksWithLinkArray:filesLink];
 }
 
@@ -75,6 +72,8 @@
     self.pickSpeed = 0;
     self.chunkSize = 0;
     self.testState = SPSpeedTestComplete;
+    
+    [self.injection.transferManager cancelAllTasks];
 }
 
 @end

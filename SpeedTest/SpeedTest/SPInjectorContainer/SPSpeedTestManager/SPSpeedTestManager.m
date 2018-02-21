@@ -11,6 +11,7 @@
 #import "SPSpeedTestProtocol.h"
 
 static const NSTimeInterval SPSpeedTestManagerTimeInterval = 1.0;
+static const NSTimeInterval SPSpeedTestManagerMaxTestTyme = 30.0;
 static const NSTimeInterval SPSpeedTestManagerBitsInByte = 8;
 
 @interface SPSpeedTestManager() {
@@ -55,7 +56,7 @@ static const NSTimeInterval SPSpeedTestManagerBitsInByte = 8;
     if (!neededTest) {
         return;
     }
-    [neededTest runTest];
+    [neededTest runDownloadTest];
     __weak SPSpeedTestManager *weakSelf = self;
     if (!self.testTimer) {
         self.startTestDateInterval = [NSDate date].timeIntervalSince1970;
@@ -68,11 +69,17 @@ static const NSTimeInterval SPSpeedTestManagerBitsInByte = 8;
 
 -(void)calculateProgressForTest:(id<SPSpeedTestProtocol>)test {
     NSTimeInterval timeFrame = [NSDate date].timeIntervalSince1970 - self.startTestDateInterval;
+    
+
     test.avarageSpeed = test.doneSize / timeFrame * SPSpeedTestManagerBitsInByte;
     test.speed = test.chunkSize / SPSpeedTestManagerTimeInterval * SPSpeedTestManagerBitsInByte;
     test.pickSpeed = MAX(test.pickSpeed, test.speed);
     
     test.chunkSize = 0;
+    if (timeFrame >SPSpeedTestManagerMaxTestTyme) {
+        NSLog(@"Test complete by timer");
+        [test cancelTest];
+    }
     
     if (_delegate) {
         [_delegate testStateChanged:test state:test.testState];

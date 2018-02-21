@@ -95,8 +95,17 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     NSArray<NSURLSessionTask *> *filteredArray = [[NSArray arrayWithArray:_activeTasks] filteredArrayUsingPredicate:predicate];
     if (filteredArray.count) {
         SPTransferMangerHandler neededHandler = [_handlers objectForKey:@(filteredArray.firstObject.taskIdentifier)];
-        neededHandler(bytesWritten, totalBytesExpectedToWrite, totalBytesWritten, nil);
+        neededHandler((long)bytesWritten, (long)totalBytesExpectedToWrite, (long)totalBytesWritten, nil);
     }
+}
+
+
+-(void)cancelAllTasks {
+    [_activeTasks enumerateObjectsUsingBlock:^(NSURLSessionTask * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj cancel];
+    }];
+    [_activeTasks removeAllObjects];
+    [_handlers removeAllObjects];
 }
 
 @end

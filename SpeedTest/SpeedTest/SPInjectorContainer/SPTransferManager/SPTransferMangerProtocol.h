@@ -14,4 +14,6 @@ typedef void (^SPTransferMangerHandler) (long downloadedLastChunkSize, long expe
 
 -(void)addDownloadTaskWithURL:(NSURL *)url handler:(SPTransferMangerHandler)handler;
 
+-(void)cancelAllTasks;
+
 @end

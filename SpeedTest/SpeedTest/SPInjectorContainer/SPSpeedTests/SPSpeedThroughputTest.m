@@ -58,7 +58,7 @@
                 tasksCount++;
             }
             if (tasksCount >= links.count) {
-                [weakSelf cancelTest];
+                weakSelf.testState = SPSpeedTestComplete;
             }
         }];
     }];
@@ -71,7 +71,6 @@
     self.avarageSpeed = 0;
     self.pickSpeed = 0;
     self.chunkSize = 0;
-    self.testState = SPSpeedTestComplete;
     
     [self.injection.transferManager cancelAllTasks];
 }

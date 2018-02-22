@@ -10,6 +10,19 @@
 		BD50C6DAAA85F769DAE034F4 /* libPods-SpeedTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14038D78333AD8DB96AADFC4 /* libPods-SpeedTestTests.a */; };
 		D55029083D42199C457A91CA /* libPods-SpeedTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE194744374696F8B0CB4050 /* libPods-SpeedTest.a */; };
 		DACB0ECEA0967A7CA93B7AB5 /* libPods-SpeedTestUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E553874F2FFF7EFD896E9157 /* libPods-SpeedTestUITests.a */; };
+		E25B30F8203E97320031FEB7 /* SPTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B30F7203E97320031FEB7 /* SPTestModel.m */; };
+		E25B30FB203E9E160031FEB7 /* SPTestInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B30FA203E9E160031FEB7 /* SPTestInfoModel.m */; };
+		E25B3100203EA50F0031FEB7 /* SPSpeedTestHistoryViewConroller.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B30FF203EA50F0031FEB7 /* SPSpeedTestHistoryViewConroller.m */; };
+		E25B3108203EA67B0031FEB7 /* SPCoreDataManager+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B3102203EA67B0031FEB7 /* SPCoreDataManager+Operations.m */; };
+		E25B3109203EA67B0031FEB7 /* SPCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B3106203EA67B0031FEB7 /* SPCoreDataManager.m */; };
+		E25B310C203EA81E0031FEB7 /* SpeedTestDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E25B310A203EA81E0031FEB7 /* SpeedTestDataModel.xcdatamodeld */; };
+		E25B3116203EA8AF0031FEB7 /* SPSpeedTest+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B3113203EA8AF0031FEB7 /* SPSpeedTest+CoreDataClass.m */; };
+		E25B3117203EA8AF0031FEB7 /* SPSpeedTest+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B3115203EA8AF0031FEB7 /* SPSpeedTest+CoreDataProperties.m */; };
+		E25B311F203EAD480031FEB7 /* SPCoreDataManager+Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B311E203EAD480031FEB7 /* SPCoreDataManager+Tests.m */; };
+		E25B3122203EB0170031FEB7 /* SPMantleHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B3120203EB0170031FEB7 /* SPMantleHelper.m */; };
+		E25B3125203EB7550031FEB7 /* SPSpeedTestHistoryDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B3124203EB7550031FEB7 /* SPSpeedTestHistoryDataController.m */; };
+		E25B312E203EBE450031FEB7 /* SPSpeedTestHistoryTableViewDataSourse.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B312D203EBE450031FEB7 /* SPSpeedTestHistoryTableViewDataSourse.m */; };
+		E25B3131203ECF860031FEB7 /* SPSpeedTestHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B3130203ECF860031FEB7 /* SPSpeedTestHistoryTableViewCell.m */; };
 		E2D5A49B203AAB7300F75B02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5A49A203AAB7300F75B02 /* AppDelegate.m */; };
 		E2D5A49E203AAB7300F75B02 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5A49D203AAB7300F75B02 /* ViewController.m */; };
 		E2D5A4A1203AAB7300F75B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D5A49F203AAB7300F75B02 /* Main.storyboard */; };
@@ -57,6 +70,36 @@
 		BE194744374696F8B0CB4050 /* libPods-SpeedTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpeedTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF97755790D6816E6C0E0A52 /* Pods-SpeedTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeedTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeedTest/Pods-SpeedTest.debug.xcconfig"; sourceTree = "<group>"; };
 		D0F3DE0778B5005AAA22EFAB /* Pods-SpeedTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeedTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeedTestUITests/Pods-SpeedTestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E25B30F6203E97320031FEB7 /* SPTestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTestModel.h; sourceTree = "<group>"; };
+		E25B30F7203E97320031FEB7 /* SPTestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPTestModel.m; sourceTree = "<group>"; };
+		E25B30F9203E9E160031FEB7 /* SPTestInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTestInfoModel.h; sourceTree = "<group>"; };
+		E25B30FA203E9E160031FEB7 /* SPTestInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPTestInfoModel.m; sourceTree = "<group>"; };
+		E25B30FC203EA0B80031FEB7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		E25B30FE203EA50F0031FEB7 /* SPSpeedTestHistoryViewConroller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSpeedTestHistoryViewConroller.h; sourceTree = "<group>"; };
+		E25B30FF203EA50F0031FEB7 /* SPSpeedTestHistoryViewConroller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPSpeedTestHistoryViewConroller.m; sourceTree = "<group>"; };
+		E25B3102203EA67B0031FEB7 /* SPCoreDataManager+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SPCoreDataManager+Operations.m"; path = "SpeedTest/SPCoreDataManager+Operations.m"; sourceTree = SOURCE_ROOT; };
+		E25B3103203EA67B0031FEB7 /* SPCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCoreDataManager.h; path = SpeedTest/SPCoreDataManager.h; sourceTree = SOURCE_ROOT; };
+		E25B3104203EA67B0031FEB7 /* SPCoreDataOperationsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCoreDataOperationsProtocol.h; path = SpeedTest/SPCoreDataOperationsProtocol.h; sourceTree = SOURCE_ROOT; };
+		E25B3105203EA67B0031FEB7 /* SPCoreDataManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCoreDataManagerProtocol.h; path = SpeedTest/SPCoreDataManagerProtocol.h; sourceTree = SOURCE_ROOT; };
+		E25B3106203EA67B0031FEB7 /* SPCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCoreDataManager.m; path = SpeedTest/SPCoreDataManager.m; sourceTree = SOURCE_ROOT; };
+		E25B3107203EA67B0031FEB7 /* SPCoreDataManager+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SPCoreDataManager+Operations.h"; path = "SpeedTest/SPCoreDataManager+Operations.h"; sourceTree = SOURCE_ROOT; };
+		E25B310B203EA81E0031FEB7 /* SpeedTestDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpeedTestDataModel.xcdatamodel; sourceTree = "<group>"; };
+		E25B3112203EA8AF0031FEB7 /* SPSpeedTest+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SPSpeedTest+CoreDataClass.h"; sourceTree = "<group>"; };
+		E25B3113203EA8AF0031FEB7 /* SPSpeedTest+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SPSpeedTest+CoreDataClass.m"; sourceTree = "<group>"; };
+		E25B3114203EA8AF0031FEB7 /* SPSpeedTest+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SPSpeedTest+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E25B3115203EA8AF0031FEB7 /* SPSpeedTest+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SPSpeedTest+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E25B311A203EACD40031FEB7 /* SPCoreDataManagerTestsProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPCoreDataManagerTestsProtocol.h; sourceTree = "<group>"; };
+		E25B311D203EAD480031FEB7 /* SPCoreDataManager+Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SPCoreDataManager+Tests.h"; sourceTree = "<group>"; };
+		E25B311E203EAD480031FEB7 /* SPCoreDataManager+Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SPCoreDataManager+Tests.m"; sourceTree = "<group>"; };
+		E25B3120203EB0170031FEB7 /* SPMantleHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMantleHelper.m; path = SpeedTest/SPMantleHelper.m; sourceTree = SOURCE_ROOT; };
+		E25B3121203EB0170031FEB7 /* SPMantleHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMantleHelper.h; path = SpeedTest/SPMantleHelper.h; sourceTree = SOURCE_ROOT; };
+		E25B3123203EB7550031FEB7 /* SPSpeedTestHistoryDataController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSpeedTestHistoryDataController.h; sourceTree = "<group>"; };
+		E25B3124203EB7550031FEB7 /* SPSpeedTestHistoryDataController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPSpeedTestHistoryDataController.m; sourceTree = "<group>"; };
+		E25B3127203EB8370031FEB7 /* SPInjections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPInjections.h; sourceTree = "<group>"; };
+		E25B312C203EBE450031FEB7 /* SPSpeedTestHistoryTableViewDataSourse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSpeedTestHistoryTableViewDataSourse.h; sourceTree = "<group>"; };
+		E25B312D203EBE450031FEB7 /* SPSpeedTestHistoryTableViewDataSourse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPSpeedTestHistoryTableViewDataSourse.m; sourceTree = "<group>"; };
+		E25B312F203ECF860031FEB7 /* SPSpeedTestHistoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSpeedTestHistoryTableViewCell.h; sourceTree = "<group>"; };
+		E25B3130203ECF860031FEB7 /* SPSpeedTestHistoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPSpeedTestHistoryTableViewCell.m; sourceTree = "<group>"; };
 		E2D5A496203AAB7300F75B02 /* SpeedTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2D5A499203AAB7300F75B02 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2D5A49A203AAB7300F75B02 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -141,6 +184,85 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E25B30F5203E97140031FEB7 /* TestModel */ = {
+			isa = PBXGroup;
+			children = (
+				E25B30F6203E97320031FEB7 /* SPTestModel.h */,
+				E25B30F7203E97320031FEB7 /* SPTestModel.m */,
+				E25B30F9203E9E160031FEB7 /* SPTestInfoModel.h */,
+				E25B30FA203E9E160031FEB7 /* SPTestInfoModel.m */,
+			);
+			path = TestModel;
+			sourceTree = "<group>";
+		};
+		E25B30FD203EA4DC0031FEB7 /* SpeedTestHistoryViewConroller */ = {
+			isa = PBXGroup;
+			children = (
+				E25B312B203EBE090031FEB7 /* SPSpeedTestHistoryTableView */,
+				E25B3126203EB75F0031FEB7 /* SPSpeedTestHistoryDataController */,
+				E25B30FE203EA50F0031FEB7 /* SPSpeedTestHistoryViewConroller.h */,
+				E25B30FF203EA50F0031FEB7 /* SPSpeedTestHistoryViewConroller.m */,
+			);
+			path = SpeedTestHistoryViewConroller;
+			sourceTree = "<group>";
+		};
+		E25B3101203EA6620031FEB7 /* SPCoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				E25B3118203EAC950031FEB7 /* SPCoreDataManager+Tests */,
+				E25B310D203EA8700031FEB7 /* SpeedTestManagedObject */,
+				E25B3103203EA67B0031FEB7 /* SPCoreDataManager.h */,
+				E25B3106203EA67B0031FEB7 /* SPCoreDataManager.m */,
+				E25B3105203EA67B0031FEB7 /* SPCoreDataManagerProtocol.h */,
+				E25B3107203EA67B0031FEB7 /* SPCoreDataManager+Operations.h */,
+				E25B3102203EA67B0031FEB7 /* SPCoreDataManager+Operations.m */,
+				E25B3104203EA67B0031FEB7 /* SPCoreDataOperationsProtocol.h */,
+				E25B310A203EA81E0031FEB7 /* SpeedTestDataModel.xcdatamodeld */,
+			);
+			path = SPCoreDataManager;
+			sourceTree = "<group>";
+		};
+		E25B310D203EA8700031FEB7 /* SpeedTestManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				E25B3112203EA8AF0031FEB7 /* SPSpeedTest+CoreDataClass.h */,
+				E25B3113203EA8AF0031FEB7 /* SPSpeedTest+CoreDataClass.m */,
+				E25B3114203EA8AF0031FEB7 /* SPSpeedTest+CoreDataProperties.h */,
+				E25B3115203EA8AF0031FEB7 /* SPSpeedTest+CoreDataProperties.m */,
+			);
+			path = SpeedTestManagedObject;
+			sourceTree = "<group>";
+		};
+		E25B3118203EAC950031FEB7 /* SPCoreDataManager+Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E25B311D203EAD480031FEB7 /* SPCoreDataManager+Tests.h */,
+				E25B311E203EAD480031FEB7 /* SPCoreDataManager+Tests.m */,
+				E25B311A203EACD40031FEB7 /* SPCoreDataManagerTestsProtocol.h */,
+			);
+			path = "SPCoreDataManager+Tests";
+			sourceTree = "<group>";
+		};
+		E25B3126203EB75F0031FEB7 /* SPSpeedTestHistoryDataController */ = {
+			isa = PBXGroup;
+			children = (
+				E25B3123203EB7550031FEB7 /* SPSpeedTestHistoryDataController.h */,
+				E25B3124203EB7550031FEB7 /* SPSpeedTestHistoryDataController.m */,
+			);
+			path = SPSpeedTestHistoryDataController;
+			sourceTree = "<group>";
+		};
+		E25B312B203EBE090031FEB7 /* SPSpeedTestHistoryTableView */ = {
+			isa = PBXGroup;
+			children = (
+				E25B312C203EBE450031FEB7 /* SPSpeedTestHistoryTableViewDataSourse.h */,
+				E25B312D203EBE450031FEB7 /* SPSpeedTestHistoryTableViewDataSourse.m */,
+				E25B312F203ECF860031FEB7 /* SPSpeedTestHistoryTableViewCell.h */,
+				E25B3130203ECF860031FEB7 /* SPSpeedTestHistoryTableViewCell.m */,
+			);
+			path = SPSpeedTestHistoryTableView;
+			sourceTree = "<group>";
+		};
 		E2D5A48D203AAB7300F75B02 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +288,7 @@
 		E2D5A498203AAB7300F75B02 /* SpeedTest */ = {
 			isa = PBXGroup;
 			children = (
+				E25B30F5203E97140031FEB7 /* TestModel */,
 				E2D5A4FC203C63C000F75B02 /* Utils */,
 				E2D5A4D6203AB01C00F75B02 /* CommonViewControllers */,
 				E2D5A4CB203AAE3900F75B02 /* SPInjectorContainer */,
@@ -178,6 +301,7 @@
 				E2D5A4A4203AAB7300F75B02 /* LaunchScreen.storyboard */,
 				E2D5A4A7203AAB7300F75B02 /* Info.plist */,
 				E2D5A4A8203AAB7300F75B02 /* main.m */,
+				E25B30FC203EA0B80031FEB7 /* PrefixHeader.pch */,
 			);
 			path = SpeedTest;
 			sourceTree = "<group>";
@@ -203,6 +327,7 @@
 		E2D5A4CB203AAE3900F75B02 /* SPInjectorContainer */ = {
 			isa = PBXGroup;
 			children = (
+				E25B3101203EA6620031FEB7 /* SPCoreDataManager */,
 				E973A1BC203D8E670048ABB3 /* SPDataGenerator */,
 				E2D5A4F5203B1BE700F75B02 /* SPSpeedTests */,
 				E2D5A4E9203B050B00F75B02 /* SPSpeedTestManager */,
@@ -211,6 +336,7 @@
 				E2D5A4CC203AAE5800F75B02 /* SPInjectorContainer.h */,
 				E2D5A4CD203AAE5800F75B02 /* SPInjectorContainer.m */,
 				E2D5A4F2203B1B7600F75B02 /* SPSpeedTestProtocol.h */,
+				E25B3127203EB8370031FEB7 /* SPInjections.h */,
 			);
 			path = SPInjectorContainer;
 			sourceTree = "<group>";
@@ -228,6 +354,7 @@
 		E2D5A4D6203AB01C00F75B02 /* CommonViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E25B30FD203EA4DC0031FEB7 /* SpeedTestHistoryViewConroller */,
 				E2D5A4DB203AB16800F75B02 /* SpeedTestSettingsViewController */,
 				E2D5A4D7203AB03A00F75B02 /* SpeedTestViewController */,
 			);
@@ -287,6 +414,8 @@
 		E2D5A4FC203C63C000F75B02 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E25B3121203EB0170031FEB7 /* SPMantleHelper.h */,
+				E25B3120203EB0170031FEB7 /* SPMantleHelper.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -387,6 +516,7 @@
 				TargetAttributes = {
 					E2D5A495203AAB7300F75B02 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					E2D5A4AD203AAB7400F75B02 = {
@@ -600,18 +730,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E25B30F8203E97320031FEB7 /* SPTestModel.m in Sources */,
 				E2D5A4D5203AAFDD00F75B02 /* SPUIManager.m in Sources */,
+				E25B3100203EA50F0031FEB7 /* SPSpeedTestHistoryViewConroller.m in Sources */,
+				E25B3122203EB0170031FEB7 /* SPMantleHelper.m in Sources */,
 				E2D5A4E5203AC99900F75B02 /* SPTransferManager.m in Sources */,
 				E2D5A4F8203B1C4300F75B02 /* SPSpeedThroughputTest.m in Sources */,
+				E25B3116203EA8AF0031FEB7 /* SPSpeedTest+CoreDataClass.m in Sources */,
 				E2D5A4E8203AD07B00F75B02 /* SPTransferManagerDownloadTask.m in Sources */,
 				E2D5A4DE203AB18600F75B02 /* SPSettingsViewController.m in Sources */,
+				E25B3131203ECF860031FEB7 /* SPSpeedTestHistoryTableViewCell.m in Sources */,
 				E2D5A4DA203AB16200F75B02 /* SPSpeedViewController.m in Sources */,
 				E2D5A4CE203AAE5800F75B02 /* SPInjectorContainer.m in Sources */,
+				E25B310C203EA81E0031FEB7 /* SpeedTestDataModel.xcdatamodeld in Sources */,
+				E25B3108203EA67B0031FEB7 /* SPCoreDataManager+Operations.m in Sources */,
+				E25B311F203EAD480031FEB7 /* SPCoreDataManager+Tests.m in Sources */,
+				E25B312E203EBE450031FEB7 /* SPSpeedTestHistoryTableViewDataSourse.m in Sources */,
+				E25B3117203EA8AF0031FEB7 /* SPSpeedTest+CoreDataProperties.m in Sources */,
 				E2D5A4F1203B1A4C00F75B02 /* SPSpeedTestManager.m in Sources */,
 				E973A1C4203D91000048ABB3 /* SPDataGenerator.m in Sources */,
+				E25B30FB203E9E160031FEB7 /* SPTestInfoModel.m in Sources */,
 				E2D5A49E203AAB7300F75B02 /* ViewController.m in Sources */,
 				E2D5A4A9203AAB7300F75B02 /* main.m in Sources */,
+				E25B3109203EA67B0031FEB7 /* SPCoreDataManager.m in Sources */,
 				E2D5A49B203AAB7300F75B02 /* AppDelegate.m in Sources */,
+				E25B3125203EB7550031FEB7 /* SPSpeedTestHistoryDataController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,10 +849,12 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SpeedTest/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -759,6 +904,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SpeedTest/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -777,13 +924,17 @@
 			baseConfigurationReference = CF97755790D6816E6C0E0A52 /* Pods-SpeedTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RQLFJGW5AV;
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = SpeedTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.darmatterab.PEN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -793,13 +944,16 @@
 			baseConfigurationReference = 3C4B5D69E1E8F9EC9BE96A2A /* Pods-SpeedTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RQLFJGW5AV;
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = SpeedTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.darmatterab.PEN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -902,6 +1056,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E25B310A203EA81E0031FEB7 /* SpeedTestDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E25B310B203EA81E0031FEB7 /* SpeedTestDataModel.xcdatamodel */,
+			);
+			currentVersion = E25B310B203EA81E0031FEB7 /* SpeedTestDataModel.xcdatamodel */;
+			path = SpeedTestDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E2D5A48E203AAB7300F75B02 /* Project object */;
 }

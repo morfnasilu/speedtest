@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SPInjectorContainer.h"
+#import "SPCoreDataManager.h"
 
 static const CGFloat timerDuration = 10.0f;
 
@@ -23,7 +24,9 @@ static const CGFloat timerDuration = 10.0f;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [injectorContainer().uiManager commonInit];
-    
+    [injectorContainer().coreDataManager initDataBaseWithComletion:^(BOOL success) {
+        
+    }];
     UIBackgroundTaskIdentifier bgTask;
     UIApplication  *app = [UIApplication sharedApplication];
     bgTask = [app beginBackgroundTaskWithExpirationHandler:^{

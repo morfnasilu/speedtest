@@ -87,10 +87,6 @@
 
 
 -(void)testStateChanged:(id<SPSpeedTestProtocol>)test state:(SPSpeedTestState)testState {
-    if (test.speed) {
-        int i = 0;
-        i++;
-    }
     if (testState == SPSpeedTestRunning) {
         _stateLabel.text = @"Running";
     }

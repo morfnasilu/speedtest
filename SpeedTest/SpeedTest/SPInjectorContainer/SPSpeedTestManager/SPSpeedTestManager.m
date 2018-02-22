@@ -9,9 +9,13 @@
 #import "SPSpeedTestManager.h"
 #import "SPSpeedTestManagerDelegate.h"
 #import "SPSpeedTestProtocol.h"
+#import "SPCoreDataManager.h"
+#import "SPCoreDataManager+Tests.h"
+#import "SPTestModel.h"
+#import "SPTestInfoModel.h"
 
 static const NSTimeInterval SPSpeedTestManagerTimeInterval = 1.0;
-static const NSTimeInterval SPSpeedTestManagerMaxTestTyme = 30.0;
+static const NSTimeInterval SPSpeedTestManagerMaxTestTyme = 5.0;
 static const NSTimeInterval SPSpeedTestManagerBitsInByte = 8;
 
 @interface SPSpeedTestManager() {
@@ -77,8 +81,8 @@ static const NSTimeInterval SPSpeedTestManagerBitsInByte = 8;
     
     test.chunkSize = 0;
     if (timeFrame >SPSpeedTestManagerMaxTestTyme) {
+        test.testState = SPSpeedTestComplete;
         NSLog(@"Test complete by timer");
-        [test cancelTest];
     }
     
     if (_delegate) {
@@ -87,9 +91,27 @@ static const NSTimeInterval SPSpeedTestManagerBitsInByte = 8;
     if (test.testState == SPSpeedTestComplete) {
         [self.testTimer invalidate];
         self.testTimer = nil;
+        [self saveTestToDatabase:test];
+        [test cancelTest];
     }
 }
 
+
+-(void)saveTestToDatabase:(id<SPSpeedTestProtocol>)test {
+    SPTestModel *testModel = [SPTestModel new];
+    SPTestInfoModel *downloadingTestModel = [SPTestInfoModel new];
+    downloadingTestModel.testInfoType = SPTestInfoModelTypeDonwloading;
+    downloadingTestModel.testPickSpeed = test.pickSpeed;
+    downloadingTestModel.testAverageSpeed = test.avarageSpeed;
+    downloadingTestModel.testBytesCount = test.doneSize;
+    
+    testModel.downloadingTestInfo = downloadingTestModel;
+    testModel.testDate = [NSDate date];
+    
+    [self.injection.coreDataManager addTestToDataBase:testModel withCompletion:^(BOOL success) {
+        
+    }];
+}
 
 -(void)setDelegate:(id<SPSpeedTestManagerDelegate>)delegate {
     if (!delegate) {

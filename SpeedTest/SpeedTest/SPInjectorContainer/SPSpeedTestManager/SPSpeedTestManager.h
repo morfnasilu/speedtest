@@ -11,11 +11,14 @@
 
 @protocol SPTransferMangerProtocol;
 @protocol SPSpeedTestProtocol;
+@protocol SPCoreDataManagerProtocol;
+@protocol SPCoreDataManagerTestsProtocol;
 
 @protocol SPSpeedTestManagerInjection<NSObject>
 
 - (id<SPTransferMangerProtocol>)transferManager;
 - (id<SPSpeedTestProtocol>)throughputTest;
+- (id<SPCoreDataManagerProtocol, SPCoreDataManagerTestsProtocol>)coreDataManager;
 
 @end
 

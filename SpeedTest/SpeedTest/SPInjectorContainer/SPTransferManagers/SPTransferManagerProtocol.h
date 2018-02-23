@@ -10,9 +10,11 @@
 
 typedef void (^SPTransferMangerHandler) (long downloadedLastChunkSize, long expectedSize, long downloadedSize, NSError *error);
 
-@protocol SPTransferMangerProtocol<NSObject>
+@protocol SPTransferManagerProtocol<NSObject>
 
 -(void)addDownloadTaskWithURL:(NSURL *)url handler:(SPTransferMangerHandler)handler;
+
+-(void)addUploadTaskWithURL:(NSURL *)url handler:(SPTransferMangerHandler)handler;
 
 -(void)cancelAllTasks;
 

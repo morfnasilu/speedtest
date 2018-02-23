@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SPTransferMangerProtocol.h"
-
+#import "SPTransferManagerProtocol.h"
 
 @protocol SPTransferManagerInjection<NSObject>
 
 @end
 
-@interface SPTransferManager : NSObject<SPTransferMangerProtocol>
+@interface SPTransferManager : NSObject<SPTransferManagerProtocol>
 
 - (instancetype)init __attribute__((unavailable("dont use init, use initWithInjection")));
 

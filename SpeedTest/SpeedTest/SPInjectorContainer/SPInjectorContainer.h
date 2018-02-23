@@ -12,16 +12,22 @@
 #import "SPSpeedThroughputTest.h"
 #import "SPSpeedTestManager.h"
 #import "SPDataGenerator.h"
+#import "SPFTPTransferManager.h"
+#import "SPFTPThroughputTest.h"
 
 @interface SPInjectorContainer : NSObject<SPUIManagerInjection,
                                           SPTransferManagerInjection,
                                           SPSpeedThroughputTestInjection,
                                           SPSpeedTestManagerProtocol,
-                                          SPDataGeneratorProtocol>
+                                          SPDataGeneratorProtocol,
+                                          SPFTPTransferManagerInjection,
+                                          SPFTPThroughputTestInjection>
 
 - (id<SPUIManagerProtocol>)uiManager;
-- (id<SPTransferMangerProtocol>)transferManager;
+- (id<SPTransferManagerProtocol>)transferManager;
+- (id<SPTransferManagerProtocol>)ftpTransferManager;
 - (id<SPSpeedTestProtocol>)throughputTest;
+- (id<SPSpeedTestProtocol>)ftpThroughputTest;
 - (id<SPSpeedTestManagerProtocol>)speedTestManager;
 - (id<SPDataGeneratorProtocol>)dataGenerator;
 

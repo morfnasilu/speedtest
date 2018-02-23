@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "SPSpeedTestProtocol.h"
 
-@protocol SPTransferMangerProtocol;
+@protocol SPTransferManagerProtocol;
 
 @protocol SPSpeedThroughputTestInjection<NSObject>
 
-- (id<SPTransferMangerProtocol>)transferManager;
+- (id<SPTransferManagerProtocol>)transferManager;
 
 @end
 

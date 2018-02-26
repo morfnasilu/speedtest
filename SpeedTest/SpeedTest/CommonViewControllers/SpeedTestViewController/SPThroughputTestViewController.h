@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SPSpeedViewController : UIViewController
+@interface SPThroughputTestViewController : UIViewController
 
 @end

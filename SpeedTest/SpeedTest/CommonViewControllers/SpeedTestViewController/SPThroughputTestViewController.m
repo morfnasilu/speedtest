@@ -6,13 +6,13 @@
 //  Copyright © 2018 Dmtech. All rights reserved.
 //
 
-#import "SPSpeedViewController.h"
+#import "SPThroughputTestViewController.h"
 #import "SPInjectorContainer.h"
 #import "SPTransferManager.h"
 #import "SPSpeedTestManager.h"
 #import "SPSpeedTestManagerDelegate.h"
 
-@interface SPSpeedViewController ()<SPSpeedTestManagerDelegate> {
+@interface SPThroughputTestViewController ()<SPSpeedTestManagerDelegate> {
     UILabel *_currentsSpeedLabel;
     UILabel *_pickSpeedLabel;
     UILabel *_averageSpeedLabel;
@@ -20,7 +20,7 @@
 }
 @end
 
-@implementation SPSpeedViewController
+@implementation SPThroughputTestViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

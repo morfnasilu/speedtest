@@ -8,8 +8,8 @@
 
 #import "SPUIManager.h"
 #import "SPSettingsViewController.h"
-#import "SPSpeedViewController.h"
 #import "SPFTPViewController.h"
+#import "SPThroughputTestViewController.h"
 #import "SPSpeedTestHistoryViewConroller.h"
 
 @interface SPUIManager() {
@@ -32,7 +32,7 @@
 
 
 -(void)commonInit {
-    SPSpeedViewController *speedViewController = [[SPSpeedViewController alloc] init];
+    SPThroughputTestViewController *speedViewController = [[SPThroughputTestViewController alloc] init];
     speedViewController.tabBarItem.title = NSLocalizedString(@"Test speed", @"Test speed");
     
     SPFTPViewController *ftpViewController = [[SPFTPViewController alloc] init];

@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpeedTest/SPInjectorContainer/SPSpeedTests/ThroughputTest/SPSpeedThroughputTest.m"
-            timestampString = "541343519.228747"
+            timestampString = "541344215.801685"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpeedTest/SPInjectorContainer/SPSpeedTests/ThroughputTest/SPSpeedThroughputTest.m"
-            timestampString = "541343519.2288229"
+            timestampString = "541344215.801759"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpeedTest/SPInjectorContainer/SPSpeedTests/ThroughputTest/SPSpeedThroughputTest.m"
-            timestampString = "541343519.22888"
+            timestampString = "541344215.801814"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpeedTest/SPInjectorContainer/SPSpeedTestManager/SPSpeedTestManager.m"
-            timestampString = "541343519.228937"
+            timestampString = "541344215.801867"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "-calculateProgressForTest:"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,12 +122,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpeedTest/SPInjectorContainer/SPSpeedTestManager/SPSpeedTestManager.m"
-            timestampString = "541343519.229273"
+            timestampString = "541344215.802248"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "155"
             endingLineNumber = "155"
             landmarkName = "-setDelegate:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpeedTest/SPInjectorContainer/SPSpeedTestManager/SPSpeedTestManager.m"
+            timestampString = "541344215.80246"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-runTestWithType:testType:delegate:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

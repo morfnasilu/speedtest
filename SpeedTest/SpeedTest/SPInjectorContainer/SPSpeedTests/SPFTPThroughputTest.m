@@ -45,7 +45,8 @@ static NSString *const kFullUploadURLString = @"ftp://speedtest.tele2.net/upload
 }
 
 - (void)runUploadTest {
-    NSArray<NSString *> *filesLink = @[kFullUploadURLString];
+    NSArray<NSString *> *filesLink = @[kFullUploadURLString, kFullUploadURLString, kFullUploadURLString];
+    
     // TODO: replace with method for NSData or add number of requests parameter
     [self addUploadTasksWithLinkArray:filesLink];
 }

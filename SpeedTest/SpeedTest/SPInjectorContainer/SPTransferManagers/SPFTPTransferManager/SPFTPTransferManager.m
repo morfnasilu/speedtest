@@ -11,6 +11,8 @@
 #import "LxFTPRequest.h"
 
 static NSInteger const kUploadDataLength = 1000000000;
+static NSString *const kUserName = nil;
+static NSString *const kUserPassword = nil;
 
 @interface SPFTPTransferManager()
 
@@ -42,8 +44,8 @@ static NSInteger const kUploadDataLength = 1000000000;
     NSString *fullStringPath = [stringPath stringByAppendingString:[NSString stringWithFormat:@"SPDownloadedData%ld", self.activeRequestsArray.count]];
     downloadRequest.localFileURL = [NSURL fileURLWithPath:fullStringPath isDirectory:NO];
     downloadRequest.serverURL = url;
-    downloadRequest.username = nil;
-    downloadRequest.password = nil;
+    downloadRequest.username = kUserName;
+    downloadRequest.password = kUserPassword;
     
     downloadRequest.progressAction = ^(NSInteger chunkSize, NSInteger totalSize, NSInteger finishedSize, CGFloat finishedPercent) {
         handler(chunkSize, totalSize, finishedSize, nil);
@@ -69,10 +71,12 @@ static NSInteger const kUploadDataLength = 1000000000;
 - (void)addUploadTaskWithURL:(NSURL *)url handler:(SPTransferMangerHandler)handler {
     
     LxFTPRequest *uploadRequest = [LxFTPRequest uploadRequest];
+    
     uploadRequest.serverURL = [url URLByAppendingPathExtension:[NSString stringWithFormat:@"%ld", self.activeRequestsArray.count]];
     uploadRequest.localData = [self.injection.dataGenerator generateDataWithLength:kUploadDataLength];
-    uploadRequest.username = nil;
-    uploadRequest.password = nil;
+    
+    uploadRequest.username = kUserName;
+    uploadRequest.password = kUserPassword;
     
     uploadRequest.progressAction = ^(NSInteger chunkSize, NSInteger totalSize, NSInteger finishedSize, CGFloat finishedPercent) {
         handler(chunkSize, totalSize, finishedSize, nil);

@@ -11,8 +11,11 @@
 #import "SPSpeedTestManager.h"
 #import "SPSpeedTestManagerDelegate.h"
 #import "LxFTPRequest.h"
+#import <ReactiveCocoa.h>
+#import "RACEXTScope.h"
 
-@interface SPFTPViewController () <SPSpeedTestManagerDelegate> {
+
+@interface SPFTPViewController ()  {
     UILabel *_currentsSpeedLabel;
     UILabel *_pickSpeedLabel;
     UILabel *_averageSpeedLabel;

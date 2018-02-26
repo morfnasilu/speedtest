@@ -41,6 +41,9 @@
 		E973A1D4203DB6C80048ABB3 /* LxFTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E973A1D2203DB6C70048ABB3 /* LxFTPRequest.m */; };
 		E973A1D5203DB6C80048ABB3 /* LxFTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E973A1D2203DB6C70048ABB3 /* LxFTPRequest.m */; };
 		E973A1D6203DB6C80048ABB3 /* LxFTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E973A1D2203DB6C70048ABB3 /* LxFTPRequest.m */; };
+		E9802BF720442D9300F46D2B /* SPFTPViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9802BF620442D9300F46D2B /* SPFTPViewModel.m */; };
+		E9802BF820442D9300F46D2B /* SPFTPViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9802BF620442D9300F46D2B /* SPFTPViewModel.m */; };
+		E9802BF920442D9300F46D2B /* SPFTPViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9802BF620442D9300F46D2B /* SPFTPViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +121,8 @@
 		E973A1C9203D98C50048ABB3 /* SPFTPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPFTPViewController.m; sourceTree = "<group>"; };
 		E973A1D2203DB6C70048ABB3 /* LxFTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxFTPRequest.m; sourceTree = "<group>"; };
 		E973A1D3203DB6C70048ABB3 /* LxFTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxFTPRequest.h; sourceTree = "<group>"; };
+		E9802BF520442D9300F46D2B /* SPFTPViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPFTPViewModel.h; sourceTree = "<group>"; };
+		E9802BF620442D9300F46D2B /* SPFTPViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPFTPViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +361,8 @@
 			children = (
 				E973A1C8203D98C50048ABB3 /* SPFTPViewController.h */,
 				E973A1C9203D98C50048ABB3 /* SPFTPViewController.m */,
+				E9802BF520442D9300F46D2B /* SPFTPViewModel.h */,
+				E9802BF620442D9300F46D2B /* SPFTPViewModel.m */,
 			);
 			path = FTPTestViewController;
 			sourceTree = "<group>";
@@ -674,6 +681,7 @@
 				E2D5A4F8203B1C4300F75B02 /* SPSpeedThroughputTest.m in Sources */,
 				E973A1CA203D98C60048ABB3 /* SPFTPViewController.m in Sources */,
 				E2D5A4E8203AD07B00F75B02 /* SPTransferManagerDownloadTask.m in Sources */,
+				E9802BF720442D9300F46D2B /* SPFTPViewModel.m in Sources */,
 				E2D5A4DE203AB18600F75B02 /* SPSettingsViewController.m in Sources */,
 				E952D3A6203EC3520000E725 /* SPFTPThroughputTest.m in Sources */,
 				E2D5A4DA203AB16200F75B02 /* SPSpeedViewController.m in Sources */,
@@ -696,6 +704,7 @@
 				E973A1C5203D91000048ABB3 /* SPDataGenerator.m in Sources */,
 				E973A1CB203D98C60048ABB3 /* SPFTPViewController.m in Sources */,
 				E2D5A4B3203AAB7400F75B02 /* SpeedTestTests.m in Sources */,
+				E9802BF820442D9300F46D2B /* SPFTPViewModel.m in Sources */,
 				E952D3A7203EC3520000E725 /* SPFTPThroughputTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -709,6 +718,7 @@
 				E973A1C6203D91000048ABB3 /* SPDataGenerator.m in Sources */,
 				E973A1CC203D98C60048ABB3 /* SPFTPViewController.m in Sources */,
 				E2D5A4BE203AAB7400F75B02 /* SpeedTestUITests.m in Sources */,
+				E9802BF920442D9300F46D2B /* SPFTPViewModel.m in Sources */,
 				E952D3A8203EC3520000E725 /* SPFTPThroughputTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

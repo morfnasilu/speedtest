@@ -606,9 +606,9 @@ void downloadReadStreamClientCallBack(CFReadStreamRef stream, CFStreamEventType 
 
     CFWriteStreamSetProperty(self.writeStream, kCFStreamPropertyFTPUserName, (__bridge CFTypeRef)self.username);
     CFWriteStreamSetProperty(self.writeStream, kCFStreamPropertyFTPPassword, (__bridge CFTypeRef)self.password);
-    //    CFWriteStreamSetProperty(self.writeStream, kCFStreamPropertyFTPAttemptPersistentConnection, kCFBooleanFalse);
-    //    CFWriteStreamSetProperty(self.writeStream, kCFStreamPropertyFTPFetchResourceInfo, kCFBooleanTrue);
-    //    CFWriteStreamSetProperty(self.writeStream, kCFStreamPropertyFileCurrentOffset, <#CFTypeRef propertyValue#>)
+        CFWriteStreamSetProperty(self.writeStream, kCFStreamPropertyFTPAttemptPersistentConnection, kCFBooleanFalse);
+        CFWriteStreamSetProperty(self.writeStream, kCFStreamPropertyFTPFetchResourceInfo, kCFBooleanFalse);
+    CFWriteStreamSetProperty(self.writeStream, kCFStreamPropertyFileCurrentOffset, (__bridge CFTypeRef) @(self.finishedSize));
 
     Boolean supportsAsynchronousNotification = CFWriteStreamSetClient(self.writeStream,
                                                                       kCFStreamEventNone |

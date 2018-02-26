@@ -57,8 +57,8 @@ static const NSTimeInterval SPSpeedTestManagerBitsInByte = 8;
     if (!neededTest) {
         return;
     }
-    [neededTest runDownloadTest];
-//    [neededTest runUploadTest];
+//    [neededTest runDownloadTest];
+    [neededTest runUploadTest];
     __weak SPSpeedTestManager *weakSelf = self;
     if (!self.testTimer) {
         self.startTestDateInterval = [NSDate date].timeIntervalSince1970;

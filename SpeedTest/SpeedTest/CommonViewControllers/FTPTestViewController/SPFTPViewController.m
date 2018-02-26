@@ -1,30 +1,42 @@
 //
-//  SPFTPTestViewController.m
+//  SPSpeedViewController.m
 //  SpeedTest
 //
-//  Created by Pavel Skovorodko on 2/21/18.
+//  Created by Dmtech on 19.02.18.
 //  Copyright © 2018 Dmtech. All rights reserved.
 //
 
 #import "SPFTPViewController.h"
 #import "SPInjectorContainer.h"
+#import "SPSpeedTestManager.h"
+#import "SPSpeedTestManagerDelegate.h"
+#import "LxFTPRequest.h"
+#import <ReactiveCocoa.h>
+#import "RACEXTScope.h"
 
-@interface SPSpeedViewController ()<SPSpeedTestManagerDelegate> {
+
+@interface SPFTPViewController ()  {
     UILabel *_currentsSpeedLabel;
     UILabel *_pickSpeedLabel;
     UILabel *_averageSpeedLabel;
     UILabel *_stateLabel;
 }
+
+@property (nonatomic, strong) LxFTPRequest *downloadRequest;
+@property (nonatomic, strong) LxFTPRequest *uploadRequest;
+
+@property (nonatomic, strong) NSString *documentsFilePath;
+@property (nonatomic, strong) NSString *fullLocalPath;
+
 @end
 
-@implementation SPSpeedViewController
+@implementation SPFTPViewController
+
+#pragma mark - Init & Setup
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"Test" forState:UIControlStateNormal];
@@ -77,4 +89,30 @@
     [NSLayoutConstraint constraintWithItem:_stateLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_currentsSpeedLabel attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10].active = YES;
 }
 
+#pragma mark - Actions
+
+-(void)buttonTouch {
+    [injectorContainer().speedTestManager runTestWithType:SPSpeedTestManagerStrategyFTP delegate:self];
+}
+
+#pragma mark - SPSpeedTestManagerDelegate
+
+- (void)testStateChanged:(id<SPSpeedTestProtocol>)test state:(SPSpeedTestState)testState {
+    if (test.speed) {
+        int i = 0;
+        i++;
+    }
+    if (testState == SPSpeedTestRunning) {
+        _stateLabel.text = @"Running";
+    }
+    if (testState == SPSpeedTestComplete) {
+        _stateLabel.text = @"Test completed";
+        return;
+    }
+    _currentsSpeedLabel.text = [NSByteCountFormatter stringFromByteCount:test.speed countStyle:NSByteCountFormatterCountStyleDecimal];
+    _averageSpeedLabel.text = [NSByteCountFormatter stringFromByteCount:test.avarageSpeed countStyle:NSByteCountFormatterCountStyleDecimal];
+    _pickSpeedLabel.text = [NSByteCountFormatter stringFromByteCount:test.pickSpeed countStyle:NSByteCountFormatterCountStyleDecimal];
+}
+
 @end
+

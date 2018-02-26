@@ -42,6 +42,9 @@
     [self addDownloadTasksWithLinkArray:filesLink];
 }
 
+- (void)runUploadTest {
+    
+}
 
 -(void)addDownloadTasksWithLinkArray:(NSArray<NSString *> *)links {
     __weak SPSpeedThroughputTest *weakSelf = self;

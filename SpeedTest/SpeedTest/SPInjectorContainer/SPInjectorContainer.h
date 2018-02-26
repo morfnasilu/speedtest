@@ -12,6 +12,8 @@
 #import "SPSpeedThroughputTest.h"
 #import "SPSpeedTestManager.h"
 #import "SPDataGenerator.h"
+#import "SPFTPTransferManager.h"
+#import "SPFTPThroughputTest.h"
 #import "SPCoreDataManager.h"
 #import "SPCoreDataManager+Tests.h"
 #import "SPInjections.h"
@@ -21,12 +23,16 @@
                                           SPSpeedThroughputTestInjection,
                                           SPSpeedTestManagerProtocol,
                                           SPDataGeneratorProtocol,
+                                          SPFTPTransferManagerInjection,
+                                          SPFTPThroughputTestInjection,
                                           SPCoreDataInjection,
                                           SPSpeedTestHistoryInjection>
 
 - (id<SPUIManagerProtocol>)uiManager;
-- (id<SPTransferMangerProtocol>)transferManager;
+- (id<SPTransferManagerProtocol>)transferManager;
+- (id<SPTransferManagerProtocol>)ftpTransferManager;
 - (id<SPSpeedTestProtocol>)throughputTest;
+- (id<SPSpeedTestProtocol>)ftpThroughputTest;
 - (id<SPSpeedTestManagerProtocol>)speedTestManager;
 - (id<SPDataGeneratorProtocol>)dataGenerator;
 - (id<SPCoreDataManagerProtocol, SPCoreDataManagerTestsProtocol>)coreDataManager;

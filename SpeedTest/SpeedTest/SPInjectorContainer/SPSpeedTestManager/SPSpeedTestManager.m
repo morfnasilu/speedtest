@@ -47,6 +47,7 @@ static const NSTimeInterval SPSpeedTestManagerBitsInByte = 8;
             neededTest = self.injection.throughputTest;
             break;
         case SPSpeedTestManagerStrategyFTP:
+            neededTest = self.injection.ftpThroughputTest;
             break;
         case SPSpeedTestManagerStrategyYouTube:
             break;
@@ -60,7 +61,8 @@ static const NSTimeInterval SPSpeedTestManagerBitsInByte = 8;
     if (!neededTest) {
         return;
     }
-    [neededTest runDownloadTest];
+//    [neededTest runDownloadTest];
+    [neededTest runUploadTest];
     __weak SPSpeedTestManager *weakSelf = self;
     if (!self.testTimer) {
         self.startTestDateInterval = [NSDate date].timeIntervalSince1970;

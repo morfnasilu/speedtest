@@ -8,6 +8,7 @@
 
 #import "SPInjectorContainer.h"
 #import "SPSpeedThroughputTest.h"
+#import "SPFTPThroughputTest.h"
 
 @implementation SPInjectorContainer
 
@@ -21,8 +22,8 @@
 }
 
 
-- (id<SPTransferMangerProtocol>)transferManager {
-    static id<SPTransferMangerProtocol> transferManager = nil;
+- (id<SPTransferManagerProtocol>)transferManager {
+    static id<SPTransferManagerProtocol> transferManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         transferManager = [[SPTransferManager alloc] initWithInjection:self];
@@ -30,6 +31,14 @@
     return transferManager;
 }
 
+- (id<SPTransferManagerProtocol>)ftpTransferManager {
+    static id<SPTransferManagerProtocol> ftpTransferManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        ftpTransferManager = [[SPFTPTransferManager alloc] initWithInjection:self];
+    });
+    return ftpTransferManager;
+}
 
 - (id<SPSpeedTestProtocol>)throughputTest {
     static id<SPSpeedTestProtocol> throughputTest = nil;
@@ -40,6 +49,14 @@
     return throughputTest;
 }
 
+- (id<SPSpeedTestProtocol>)ftpThroughputTest {
+    static id<SPSpeedTestProtocol> ftpThroughputTest = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        ftpThroughputTest = [[SPFTPThroughputTest alloc] initWithInjection:self];
+    });
+    return ftpThroughputTest;
+}
 
 - (id<SPSpeedTestManagerProtocol>)speedTestManager {
     static id<SPSpeedTestManagerProtocol> speedTestManager = nil;

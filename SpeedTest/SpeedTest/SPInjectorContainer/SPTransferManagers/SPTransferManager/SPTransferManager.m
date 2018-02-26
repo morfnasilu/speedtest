@@ -53,6 +53,9 @@
     [dataTask resume];
 }
 
+- (void)addUploadTaskWithURL:(NSURL *)url handler:(SPTransferMangerHandler)handler {
+    
+}
 
 -(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
 

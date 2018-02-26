@@ -10,6 +10,7 @@
 #import "SPSettingsViewController.h"
 #import "SPSpeedViewController.h"
 #import "SPFTPViewController.h"
+#import "SPSpeedTestHistoryViewConroller.h"
 
 @interface SPUIManager() {
     UITabBarController *_tabBarController;
@@ -40,8 +41,11 @@
     SPSettingsViewController *settingsViewController = [[SPSettingsViewController alloc] init];
     settingsViewController.tabBarItem.title = NSLocalizedString(@"Settings", @"Settings");
     
+    SPSpeedTestHistoryViewConroller *historyViewController = [[SPSpeedTestHistoryViewConroller alloc] init];
+    historyViewController.tabBarItem.title = NSLocalizedString(@"History", @"History");
+    
     _tabBarController = [[UITabBarController alloc] init];
-    _tabBarController.viewControllers = @[speedViewController, ftpViewController, settingsViewController];
+    _tabBarController.viewControllers = @[speedViewController, ftpViewController, historyViewController, settingsViewController];
     
     UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
     

@@ -64,6 +64,7 @@
     dispatch_once(&onceToken, ^{
         speedTestManager = [[SPSpeedTestManager alloc] initWithInjection:self];
     });
+    
     return speedTestManager;
 }
 
@@ -74,6 +75,16 @@
         dataGenerator = [[SPDataGenerator alloc] init];
     });
     return dataGenerator;
+}
+
+
+- (id<SPCoreDataManagerProtocol, SPCoreDataManagerTestsProtocol>)coreDataManager {
+    static id<SPCoreDataManagerProtocol> dataManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dataManager = [[SPCoreDataManager alloc] initWithInjection:self];
+    });
+    return dataManager;
 }
 
 @end

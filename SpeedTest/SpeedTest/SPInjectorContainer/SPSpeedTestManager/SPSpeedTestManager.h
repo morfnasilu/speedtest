@@ -12,6 +12,8 @@
 @protocol SPTransferManagerProtocol;
 @protocol SPFTPTransferManagerProtocol;
 @protocol SPSpeedTestProtocol;
+@protocol SPCoreDataManagerProtocol;
+@protocol SPCoreDataManagerTestsProtocol;
 
 @protocol SPSpeedTestManagerInjection<NSObject>
 
@@ -19,6 +21,7 @@
 - (id<SPFTPTransferManagerProtocol>)ftpTransferManager;
 - (id<SPSpeedTestProtocol>)throughputTest;
 - (id<SPSpeedTestProtocol>)ftpThroughputTest;
+- (id<SPCoreDataManagerProtocol, SPCoreDataManagerTestsProtocol>)coreDataManager;
 
 @end
 

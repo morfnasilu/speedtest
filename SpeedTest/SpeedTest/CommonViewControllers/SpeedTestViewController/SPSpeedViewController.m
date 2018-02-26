@@ -29,6 +29,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    UIButton *latencybutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [latencybutton setTitle:@"LatencyTest" forState:UIControlStateNormal];
+    [latencybutton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    latencybutton.translatesAutoresizingMaskIntoConstraints = NO;
+    [latencybutton addTarget:self action:@selector(latencyTest) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:latencybutton];
+    
+    [NSLayoutConstraint constraintWithItem:latencybutton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0].active = YES;
+    [NSLayoutConstraint constraintWithItem:latencybutton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:100].active = YES;
+    [NSLayoutConstraint constraintWithItem:latencybutton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0].active = YES;
+    [NSLayoutConstraint constraintWithItem:latencybutton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0].active = YES;
+    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"Test" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -81,8 +93,13 @@
 }
 
 
+-(void)latencyTest {
+    [injectorContainer().speedTestManager runTestWithType:SPSpeedTestManagerStrategyLatency testType:SPSpeedTestManagerTestTypeDownloading delegate:self];
+}
+
+
 -(void)buttonTouch {
-    [injectorContainer().speedTestManager runTestWithType:SPSpeedTestManagerStrategySimple delegate:self];
+    [injectorContainer().speedTestManager runTestWithType:SPSpeedTestManagerStrategySimple testType:SPSpeedTestManagerTestTypeDownloading delegate:self];
 }
 
 

@@ -9,6 +9,7 @@ target 'SpeedTest' do
 	pod 'ReactiveCocoa', '2.4.7'
     pod 'Mantle'
     pod 'MTLManagedObjectAdapter'
+    pod 'GBPing'
   target 'SpeedTestTests' do
 
     inherit! :search_paths

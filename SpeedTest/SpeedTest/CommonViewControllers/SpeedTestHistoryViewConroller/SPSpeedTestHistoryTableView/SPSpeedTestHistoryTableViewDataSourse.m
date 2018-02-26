@@ -69,7 +69,10 @@
             break;
     }
     cell.testTypeLabel.text = testTypeText;
-    cell.testAverageSpeedLabel.text = [NSByteCountFormatter stringFromByteCount:speedTestModel.downloadingTestInfo.testAverageSpeed countStyle:NSByteCountFormatterCountStyleDecimal];
+    
+    NSByteCountFormatter *formatter = [NSByteCountFormatter new];
+    formatter.includesUnit = NO;
+    cell.testAverageSpeedLabel.text = [formatter stringFromByteCount:speedTestModel.downloadingTestInfo.testAverageSpeed];
     return cell;
     
 

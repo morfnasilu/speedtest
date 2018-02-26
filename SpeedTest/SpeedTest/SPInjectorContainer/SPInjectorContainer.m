@@ -9,6 +9,7 @@
 #import "SPInjectorContainer.h"
 #import "SPSpeedThroughputTest.h"
 #import "SPFTPThroughputTest.h"
+#import "SPSpeedLatencyTest.h"
 
 @implementation SPInjectorContainer
 
@@ -57,6 +58,16 @@
     });
     return ftpThroughputTest;
 }
+
+- (id<SPSpeedTestProtocol>)latencyTest {
+    static id<SPSpeedTestProtocol> latencyTest = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        latencyTest = [[SPSpeedLatencyTest alloc] initWithInjection:self];
+    });
+    return latencyTest;
+}
+
 
 - (id<SPSpeedTestManagerProtocol>)speedTestManager {
     static id<SPSpeedTestManagerProtocol> speedTestManager = nil;

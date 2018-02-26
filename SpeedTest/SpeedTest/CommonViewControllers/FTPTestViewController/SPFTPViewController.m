@@ -92,7 +92,7 @@
 #pragma mark - Actions
 
 -(void)buttonTouch {
-    [injectorContainer().speedTestManager runTestWithType:SPSpeedTestManagerStrategyFTP delegate:self];
+    [injectorContainer().speedTestManager runTestWithType:SPSpeedTestManagerStrategyFTP testType:SPSpeedTestManagerTestTypeDownloading delegate:self];
 }
 
 #pragma mark - SPSpeedTestManagerDelegate

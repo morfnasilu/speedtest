@@ -17,6 +17,7 @@
 #import "SPCoreDataManager.h"
 #import "SPCoreDataManager+Tests.h"
 #import "SPInjections.h"
+#import "SPSpeedLatencyTest.h"
 
 @interface SPInjectorContainer : NSObject<SPUIManagerInjection,
                                           SPTransferManagerInjection,
@@ -26,13 +27,15 @@
                                           SPFTPTransferManagerInjection,
                                           SPFTPThroughputTestInjection,
                                           SPCoreDataInjection,
-                                          SPSpeedTestHistoryInjection>
+                                          SPSpeedTestHistoryInjection,
+                                          SPSpeedLatencyTestInjection>
 
 - (id<SPUIManagerProtocol>)uiManager;
 - (id<SPTransferManagerProtocol>)transferManager;
 - (id<SPTransferManagerProtocol>)ftpTransferManager;
 - (id<SPSpeedTestProtocol>)throughputTest;
 - (id<SPSpeedTestProtocol>)ftpThroughputTest;
+- (id<SPSpeedTestProtocol>)latencyTest;
 - (id<SPSpeedTestManagerProtocol>)speedTestManager;
 - (id<SPDataGeneratorProtocol>)dataGenerator;
 - (id<SPCoreDataManagerProtocol, SPCoreDataManagerTestsProtocol>)coreDataManager;

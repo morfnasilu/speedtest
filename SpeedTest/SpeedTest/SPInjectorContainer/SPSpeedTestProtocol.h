@@ -21,10 +21,18 @@ typedef NS_ENUM(NSUInteger, SPSpeedTestState) {
 @property (nonatomic, assign) long speed;// bytes/second
 @property (nonatomic, assign) long avarageSpeed;// bytes/second
 @property (nonatomic, assign) long pickSpeed;// bytes/second
+@property (nonatomic, assign) double latency;// miliseconds
 @property (nonatomic, assign) SPSpeedTestState testState;
 
+@property (nonatomic, assign) NSInteger testType;
+
 -(void)runDownloadTest;
+-(void)runLatencyTestToHost:(NSString *)host;
+
 -(void)runUploadTest;
 -(void)cancelTest;
+-(BOOL)supportLatencyTest;
+-(BOOL)supportDownloadTest;
+-(BOOL)supportUploadTest;
 
 @end

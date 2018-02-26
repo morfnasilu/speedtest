@@ -17,3 +17,4 @@
 #import "ReactiveCocoa/ReactiveCocoa.h"
 #import "Mantle/Mantle.h"
 #import "MTLManagedObjectAdapter.h"
+#import "GBPing/GBPing.h"

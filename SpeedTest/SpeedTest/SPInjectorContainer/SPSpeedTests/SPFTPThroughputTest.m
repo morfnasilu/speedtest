@@ -9,9 +9,11 @@
 #import "SPFTPThroughputTest.h"
 #import "SPFTPTransferManager.h"
 #import "LxFTPRequest.h"
+#import "SPDataGenerator.h"
 
 static NSString *const kFullDownloadURLString = @"ftp://speedtest.tele2.net/100MB.zip";
 static NSString *const kFullUploadURLString = @"ftp://speedtest.tele2.net/upload/SPUploadedData";
+static NSInteger const kUploadDataLength = 1000000000;
 
 @interface SPFTPThroughputTest()
 
@@ -27,6 +29,8 @@ static NSString *const kFullUploadURLString = @"ftp://speedtest.tele2.net/upload
 @synthesize avarageSpeed = _avarageSpeed;
 @synthesize pickSpeed = _pickSpeed;
 @synthesize chunkSize = _chunkSize;
+@synthesize testType = _testType;
+@synthesize latency = _latency;
 
 #pragma mark - Init & Config
 
@@ -95,7 +99,7 @@ static NSString *const kFullUploadURLString = @"ftp://speedtest.tele2.net/upload
     weakSelf.testState = SPSpeedTestRunning;
     
     [links enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [weakSelf.injection.ftpTransferManager addUploadTaskWithURL:[NSURL URLWithString:obj] handler:^(long downloadedLastChunkSize, long expectedSize, long downloadedSize, NSError *error) {
+        [weakSelf.injection.ftpTransferManager addUploadTaskWithURL:[NSURL URLWithString:obj] uploadData:[self.injection.dataGenerator generateDataWithLength:kUploadDataLength] handler:^(long downloadedLastChunkSize, long expectedSize, long downloadedSize, NSError *error) {
             weakSelf.doneSize += downloadedLastChunkSize;
             weakSelf.chunkSize += downloadedLastChunkSize;
             if (downloadedSize >= expectedSize) {
@@ -106,6 +110,21 @@ static NSString *const kFullUploadURLString = @"ftp://speedtest.tele2.net/upload
             }
         }];
     }];
+}
+
+
+-(BOOL)supportLatencyTest {
+    return NO;
+}
+
+
+-(BOOL)supportDownloadTest {
+    return YES;
+}
+
+
+-(BOOL)supportUploadTest {
+    return YES;
 }
 
 @end

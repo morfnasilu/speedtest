@@ -10,10 +10,12 @@
 #import "SPSpeedTestProtocol.h"
 
 @protocol SPTransferManagerProtocol;
+@protocol SPDataGeneratorProtocol;
 
 @protocol SPFTPThroughputTestInjection <NSObject>
 
 - (id<SPTransferManagerProtocol>)ftpTransferManager;
+- (id<SPDataGeneratorProtocol>)dataGenerator;
 
 @end
 

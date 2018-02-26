@@ -10,7 +10,6 @@
 #import "SPInjectorContainer.h"
 #import "LxFTPRequest.h"
 
-static NSInteger const kUploadDataLength = 1000000000;
 static NSString *const kUserName = nil;
 static NSString *const kUserPassword = nil;
 
@@ -36,7 +35,7 @@ static NSString *const kUserPassword = nil;
 
 #pragma mark - SPTransferManagerProtocol
 
-- (void)addDownloadTaskWithURL:(NSURL *)url handler:(SPTransferMangerHandler)handler {
+- (void)addDownloadTaskWithURL:(NSURL *)url handler:(SPTransferManagerDownloadingHandler)handler {
     
     LxFTPRequest *downloadRequest = [LxFTPRequest downloadRequest];
     
@@ -68,12 +67,12 @@ static NSString *const kUserPassword = nil;
     [downloadRequest start];
 }
 
-- (void)addUploadTaskWithURL:(NSURL *)url handler:(SPTransferMangerHandler)handler {
+-(void)addUploadTaskWithURL:(NSURL *)url uploadData:(NSData *)data handler:(SPTransferManagerUploadingHandler)handler {
     
     LxFTPRequest *uploadRequest = [LxFTPRequest uploadRequest];
     
     uploadRequest.serverURL = [url URLByAppendingPathExtension:[NSString stringWithFormat:@"%ld", self.activeRequestsArray.count]];
-    uploadRequest.localData = [self.injection.dataGenerator generateDataWithLength:kUploadDataLength];
+    uploadRequest.localData = data;//[self.injection.dataGenerator generateDataWithLength:kUploadDataLength];
     
     uploadRequest.username = kUserName;
     uploadRequest.password = kUserPassword;

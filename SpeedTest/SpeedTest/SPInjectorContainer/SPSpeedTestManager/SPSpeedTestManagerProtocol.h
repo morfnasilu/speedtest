@@ -11,6 +11,7 @@
 @protocol SPSpeedTestManagerDelegate;
 
 typedef NS_ENUM(NSUInteger, SPSpeedTestManagerStrategy) {
+    SPSpeedTestManagerStrategyLatency,
     SPSpeedTestManagerStrategySimple,
     SPSpeedTestManagerStrategyFTP,
     SPSpeedTestManagerStrategyYouTube,
@@ -18,9 +19,20 @@ typedef NS_ENUM(NSUInteger, SPSpeedTestManagerStrategy) {
     SPSpeedTestManagerStrategyWeb
 };
 
+
+typedef NS_ENUM(NSUInteger, SPSpeedTestManagerTestType) {
+    SPSpeedTestManagerTestTypeDownloading,
+    SPSpeedTestManagerTestTypeUploading
+};
+
 @protocol SPSpeedTestManagerProtocol<NSObject>
 
--(void)runTestWithType:(SPSpeedTestManagerStrategy)strategy delegate:(id<SPSpeedTestManagerDelegate>)delegate;
+-(void)runTestWithType:(SPSpeedTestManagerStrategy)strategy
+              testType:(SPSpeedTestManagerTestType)testType
+              delegate:(id<SPSpeedTestManagerDelegate>)delegate;
+-(void)runLatencyTestWithURL:(NSString *)url
+                    delegate:(id<SPSpeedTestManagerDelegate>)delegate;
+
 -(void)cancelTestWithType:(SPSpeedTestManagerStrategy)strategy;
 
 @end

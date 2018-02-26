@@ -13,6 +13,7 @@
 #import "SPCoreDataManager+Tests.h"
 #import "SPTestModel.h"
 #import "SPTestInfoModel.h"
+#import "SPSpeedLatencyTest.h"
 
 static const NSTimeInterval SPSpeedTestManagerTimeInterval = 1.0;
 static const NSTimeInterval SPSpeedTestManagerMaxTestTyme = 5.0;
@@ -39,10 +40,28 @@ static const NSTimeInterval SPSpeedTestManagerBitsInByte = 8;
     return self;
 }
 
--(void)runTestWithType:(SPSpeedTestManagerStrategy)strategy delegate:(id<SPSpeedTestManagerDelegate>)delegate {
+
+-(void)runLatencyTestWithURL:(NSString *)url
+                    delegate:(id<SPSpeedTestManagerDelegate>)delegate {
+    _delegate = delegate;
+    id<SPSpeedTestProtocol> latencyTest = self.injection.latencyTest;
+    [latencyTest runLatencyTestToHost:[NSURL URLWithString:url].host];
+    __weak SPSpeedTestManager *weakSelf = self;
+    [RACObserve(latencyTest, latency) subscribeNext:^(NSNumber *value) {
+        if ([value  doubleValue]) {
+            [weakSelf.delegate testLatencyChanged:[value doubleValue]];
+        }
+    }];
+}
+
+
+-(void)runTestWithType:(SPSpeedTestManagerStrategy)strategy testType:(SPSpeedTestManagerTestType)testType delegate:(id<SPSpeedTestManagerDelegate>)delegate {
     _delegate = delegate;
     id<SPSpeedTestProtocol> neededTest;
     switch (strategy) {
+        case SPSpeedTestManagerStrategyLatency:
+            neededTest = self.injection.latencyTest;
+            break;
         case SPSpeedTestManagerStrategySimple:
             neededTest = self.injection.throughputTest;
             break;
@@ -61,40 +80,57 @@ static const NSTimeInterval SPSpeedTestManagerBitsInByte = 8;
     if (!neededTest) {
         return;
     }
-//    [neededTest runDownloadTest];
-    [neededTest runUploadTest];
+    neededTest.testType = testType;
+    testType == SPSpeedTestManagerTestTypeDownloading ? [neededTest runDownloadTest] : [neededTest runUploadTest];
     __weak SPSpeedTestManager *weakSelf = self;
     if (!self.testTimer) {
-        self.startTestDateInterval = [NSDate date].timeIntervalSince1970;
-        self.testTimer = [NSTimer scheduledTimerWithTimeInterval:SPSpeedTestManagerTimeInterval repeats:YES block:^(NSTimer * _Nonnull timer) {
-            [weakSelf calculateProgressForTest:neededTest];
-        }];
+        if ([neededTest supportLatencyTest]) {
+            [RACObserve(neededTest, latency) subscribeNext:^(NSNumber *value) {
+                if ([value  doubleValue]) {
+                    weakSelf.startTestDateInterval = [NSDate date].timeIntervalSince1970;
+                    weakSelf.testTimer = [NSTimer scheduledTimerWithTimeInterval:SPSpeedTestManagerTimeInterval repeats:YES block:^(NSTimer * _Nonnull timer) {
+                        [weakSelf calculateProgressForTest:neededTest];
+                    }];
+                }
+            }];
+        }
+        else {
+            self.startTestDateInterval = [NSDate date].timeIntervalSince1970;
+            self.testTimer = [NSTimer scheduledTimerWithTimeInterval:SPSpeedTestManagerTimeInterval repeats:YES block:^(NSTimer * _Nonnull timer) {
+                [self calculateProgressForTest:neededTest];
+            }];
+        }
     }
 }
 
 
 -(void)calculateProgressForTest:(id<SPSpeedTestProtocol>)test {
-    NSTimeInterval timeFrame = [NSDate date].timeIntervalSince1970 - self.startTestDateInterval;
     
-
-    test.avarageSpeed = test.doneSize / timeFrame * SPSpeedTestManagerBitsInByte;
-    test.speed = test.chunkSize / SPSpeedTestManagerTimeInterval * SPSpeedTestManagerBitsInByte;
-    test.pickSpeed = MAX(test.pickSpeed, test.speed);
-    
-    test.chunkSize = 0;
-    if (timeFrame >SPSpeedTestManagerMaxTestTyme) {
-        test.testState = SPSpeedTestComplete;
-        NSLog(@"Test complete by timer");
-    }
-    
-    if (_delegate) {
-        [_delegate testStateChanged:test state:test.testState];
-    }
-    if (test.testState == SPSpeedTestComplete) {
-        [self.testTimer invalidate];
-        self.testTimer = nil;
-        [self saveTestToDatabase:test];
-        [test cancelTest];
+    if ([test supportDownloadTest] || [test supportUploadTest]) {
+        NSTimeInterval timeFrame = [NSDate date].timeIntervalSince1970 - self.startTestDateInterval;
+        test.avarageSpeed = test.doneSize / timeFrame * SPSpeedTestManagerBitsInByte;
+        test.speed = test.chunkSize / SPSpeedTestManagerTimeInterval * SPSpeedTestManagerBitsInByte;
+        test.pickSpeed = MAX(test.pickSpeed, test.speed);
+        
+        test.chunkSize = 0;
+        if (timeFrame >SPSpeedTestManagerMaxTestTyme) {
+            test.testState = SPSpeedTestComplete;
+            NSLog(@"Test complete by timer");
+        }
+        
+        if (_delegate) {
+            [_delegate testStateChanged:test state:test.testState];
+        }
+        if (test.testState == SPSpeedTestComplete) {
+            [self.testTimer invalidate];
+            self.testTimer = nil;
+            [self saveTestToDatabase:test];
+            [test cancelTest];
+            
+            if ([test supportUploadTest]) {
+                [self runTestWithType:test.testType testType:SPSpeedTestManagerTestTypeUploading delegate:_delegate];
+            }
+        }
     }
 }
 
@@ -125,6 +161,11 @@ static const NSTimeInterval SPSpeedTestManagerBitsInByte = 8;
 
 
 -(void)cancelTestWithType:(SPSpeedTestManagerStrategy)strategy {
+    
+}
+
+
+-(void)dealloc {
     
 }
 

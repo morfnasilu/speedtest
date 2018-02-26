@@ -42,7 +42,7 @@
 }
 
 
--(void)addDownloadTaskWithURL:(NSURL *)url handler:(SPTransferMangerHandler)handler {
+-(void)addDownloadTaskWithURL:(NSURL *)url handler:(SPTransferManagerDownloadingHandler)handler {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request addValue:@"" forHTTPHeaderField:@"Accept-Encoding"];
     NSURLSessionTask *dataTask = (SPTransferManagerDownloadTask *)[_session downloadTaskWithURL:url];
@@ -53,9 +53,23 @@
     [dataTask resume];
 }
 
-- (void)addUploadTaskWithURL:(NSURL *)url handler:(SPTransferMangerHandler)handler {
+
+-(void)addUploadTaskWithURL:(NSURL *)url uploadData:(NSData *)data handler:(SPTransferManagerUploadingHandler)handler {
     
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)data.length] forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:data];
+    
+    NSURLSessionTask *dataTask = (SPTransferManagerDownloadTask *)[_session uploadTaskWithRequest:request fromData:data];
+    
+    [_activeTasks addObject:dataTask];
+    [_handlers setObject:handler forKey:@(dataTask.taskIdentifier)];
+    
+    [dataTask resume];
 }
+
 
 -(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
 
@@ -79,12 +93,21 @@ didCompleteWithError:(NSError *)error {
     NSArray<NSURLSessionTask *> *filteredArray = [[NSArray arrayWithArray:_activeTasks] filteredArrayUsingPredicate:predicate];
     if (filteredArray.count) {
         if (error) {
-            SPTransferMangerHandler neededHandler = [_handlers objectForKey:@(filteredArray.firstObject.taskIdentifier)];
+            SPTransferManagerDownloadingHandler neededHandler = [_handlers objectForKey:@(filteredArray.firstObject.taskIdentifier)];
             neededHandler(0, 0, 0, error);
         }
         [_activeTasks removeObjectsInArray:filteredArray];
         [_handlers removeObjectForKey:@(filteredArray.firstObject.taskIdentifier)];
     }
+}
+
+
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
+   didSendBodyData:(int64_t)bytesSent
+    totalBytesSent:(int64_t)totalBytesSent
+totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
+    int i = 0;
+    i++;
 }
 
 
@@ -97,7 +120,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"taskIdentifier == %d", downloadTask.taskIdentifier];
     NSArray<NSURLSessionTask *> *filteredArray = [[NSArray arrayWithArray:_activeTasks] filteredArrayUsingPredicate:predicate];
     if (filteredArray.count) {
-        SPTransferMangerHandler neededHandler = [_handlers objectForKey:@(filteredArray.firstObject.taskIdentifier)];
+        SPTransferManagerDownloadingHandler neededHandler = [_handlers objectForKey:@(filteredArray.firstObject.taskIdentifier)];
         neededHandler((long)bytesWritten, (long)totalBytesExpectedToWrite, (long)totalBytesWritten, nil);
     }
 }

@@ -14,5 +14,6 @@
 @protocol SPSpeedTestManagerDelegate<NSObject>
 
 -(void)testStateChanged:(id<SPSpeedTestProtocol>)test state:(SPSpeedTestState)testState;
+-(void)testLatencyChanged:(double)latency;
 
 @end

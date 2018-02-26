@@ -22,6 +22,7 @@
 - (id<SPSpeedTestProtocol>)throughputTest;
 - (id<SPSpeedTestProtocol>)ftpThroughputTest;
 - (id<SPCoreDataManagerProtocol, SPCoreDataManagerTestsProtocol>)coreDataManager;
+- (id<SPSpeedTestProtocol>)latencyTest;
 
 @end
 

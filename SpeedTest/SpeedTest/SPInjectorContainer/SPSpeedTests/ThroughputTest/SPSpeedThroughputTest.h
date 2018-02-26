@@ -10,10 +10,14 @@
 #import "SPSpeedTestProtocol.h"
 
 @protocol SPTransferManagerProtocol;
+@protocol SPTransferMangerProtocol;
+@protocol SPDataGeneratorProtocol;
 
 @protocol SPSpeedThroughputTestInjection<NSObject>
 
 - (id<SPTransferManagerProtocol>)transferManager;
+- (id<SPDataGeneratorProtocol>)dataGenerator;
+- (id<SPSpeedTestProtocol>)latencyTest;
 
 @end
 
